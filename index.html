@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>植物大战僵尸 3D 写实版 | Plants vs Zombies 3D</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="canvas-container">
+      <canvas id="game-canvas"></canvas>
+    </div>
+
+    <div id="ui-root">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="top-left">
+          <div class="sun-bank">
+            <span class="sun-icon">☀️</span>
+            <span id="sun-value" class="sun-count">150</span>
+          </div>
+          <button id="shovel-btn" class="tool-btn" title="铁锹 (快捷键: S)">
+            <span>铲子</span>
+          </button>
+        </div>
+
+        <div class="wave-progress-container">
+          <div id="wave-text" class="wave-label">准备迎接尸潮...</div>
+          <div class="wave-bar-bg">
+            <div id="wave-fill" class="wave-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="top-right">
+          <button id="btn-cam" class="icon-btn" title="切换视角 (快捷键: C)">📷</button>
+          <button id="btn-night" class="icon-btn" title="切换日夜 (快捷键: N)">☀️</button>
+          <button id="btn-sound" class="icon-btn" title="音效开关">🔊</button>
+          <button id="btn-quality" class="icon-btn text-btn" title="画质调节">画质: 高</button>
+          <button id="btn-help" class="icon-btn" title="玩法指南">❓</button>
+        </div>
+      </div>
+
+      <!-- Wave Alert Banner -->
+      <div id="wave-banner" class="wave-banner hidden">一大波僵尸正在逼近！</div>
+
+      <!-- Bottom Card Deck -->
+      <div class="bottom-bar">
+        <div id="card-deck" class="card-deck">
+          <!-- Cards populated by HUD.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over / Victory Modal -->
+    <div id="modal-game-over" class="modal-overlay hidden">
+      <div class="modal-card">
+        <h2 id="modal-title">🎉 胜利！</h2>
+        <p id="modal-desc">你成功击退了所有丧尸！</p>
+        <button id="btn-restart" class="btn-primary">再战一局</button>
+      </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="modal-help" class="modal-overlay hidden">
+      <div class="modal-card">
+        <h2>🌻 植物大战僵尸 3D 玩法指南</h2>
+        <ul class="help-list">
+          <li><strong>种植防守</strong>：点击底部植物卡牌（或按键盘 1-7），然后在草坪上点击对应方格种植。</li>
+          <li><strong>收集阳光</strong>：点击空中的落日或向日葵产出的阳光，或者鼠标/手指划过阳光自动拾取。</li>
+          <li><strong>除草机防线</strong>：每行草坪末端有强力推车，是后院被突破前的终极保命装置。</li>
+          <li><strong>视角调节</strong>：手机竖屏自动优化为长轴透视，手机横屏或电脑为宽屏大视野；随时点击 📷 切换特写或俯视；右键或触摸可微调角度。</li>
+          <li><strong>日夜与画质</strong>：点击 ☀️ 切换夜间墓地场景，点击「画质」适配手机流畅运行。</li>
+        </ul>
+        <button id="btn-close-help" class="btn-primary">开始战斗</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
